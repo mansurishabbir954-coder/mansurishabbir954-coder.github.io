@@ -3,38 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Gaming Zone</title>
-    <link rel="stylesheet" href="style.css">
+    <title>My Mobile Gaming Zone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1f1f1f;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffcc;
+        }
+        .game-section {
+            margin: 20px auto;
+            padding: 15px;
+            max-width: 90%;
+            background: #1e1e1e;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+        }
+        h2 { color: #ffcc00; margin-top: 0; }
+        
+        /* --- SNAKE GAME STYLES --- */
+        #gameCanvas {
+            background-color: #000;
+            border: 2px solid #00ffcc;
+            display: block;
+            margin: 10px auto;
+            max-width: 100%;
+        }
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(3, 60px);
+            grid-gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .btn {
+            background-color: #333;
+            color: white;
+            border: 2px solid #00ffcc;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .btn:active { background-color: #00ffcc; color: black; }
+        #up { grid-column: 2; }
+        #left { grid-column: 1; }
+        #right { grid-column: 3; }
+        #down { grid-column: 2; }
+
+        /* --- TIC TAC TOE STYLES --- */
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 80px);
+            grid-gap: 5px;
+            justify-content: center;
+            margin: 15px auto;
+        }
+        .cell {
+            width: 80px;
+            height: 80px;
+            background-color: #333;
+            border: 2px solid #ffcc00;
+            font-size: 32px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .cell:active { background-color: #444; }
+        #resetBtn {
+            background-color: #ffcc00;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">🎮 GameZone</div>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Free Games</a>
-        </nav>
-    </header>
+    <header>🎮 Ahmed's Gaming Zone</header>
+    <h1>Khelna Shuru Karein!</h1>
 
-    <main>
-        <h1>Khelna Shuru Karein!</h1>
+    <div class="game-section">
+        <h2>🐍 Classic Snake Game</h2>
+        <div style="font-size: 18px; margin-bottom: 5px;">Score: <span id="scoreText">0</span></div>
+        <canvas id="gameCanvas" width="300" height="300"></canvas>
         
-        <div class="game-container">
-            <div class="game-card">
-                <h3>Moto X3M Bike Race</h3>
-                <iframe src="https://html5.gamedistribution.com/6030991871a24d5ea4be370cb8e2c39e/?gd_sdk_referrer_url=https%3A%2F%2Fgamedistribution.com%2Fgames%2Fmoto-x3m-bike-race" width="100%" height="450px" frameborder="0" scrolling="no" allowfullscreen></iframe>
-            </div>
-
-            <div class="game-card">
-                <h3>2048 Puzzle</h3>
-                <iframe src="https://html5.gamedistribution.com/393b4845012d4d9893b169543e387c33/" width="100%" height="450px" frameborder="0" scrolling="no" allowfullscreen></iframe>
-            </div>
+        <div class="controls">
+            <div id="up" class="btn">▲</div>
+            <div id="left" class="btn">◀</div>
+            <div id="right" class="btn">▶</div>
+            <div id="down" class="btn">▼</div>
         </div>
-    </main>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 Ahmed Gaming Zone. All rights reserved.</p>
-    </footer>
+    <div class="game-section">
+        <h2>❌ Zero Kanta (Tic-Tac-Toe) ⭕</h2>
+        <div id="statusText" style="font-size: 18px; margin-bottom: 10px;">Player X ki baari</div>
+        <div class="board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+        <button id="resetBtn">Restart Game</button>
+    </div>
+
+    <script>
+        // --- SNAKE GAME LOGIC ---
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+        const scoreText = document.getElementById("scoreText");
+        
+        const box = 15;
+        let snake = [{ x: 10 * box, y: 10 * box }];
+        let food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
+        let score = 0;
+        let d = "RIGHT";
+
+        // Mobile Controls
+        document.getElementById("up").addEventListener("click", () => { if(d !== "DOWN") d = "UP"; });
+        document.getElementById("down").addEventListener("click", () => { if(d !== "UP") d = "DOWN"; });
+        document.getElementById("left").addEventListener("click", () => { if(d !== "RIGHT") d = "LEFT"; });
+        document.getElementById("right").addEventListener("click", () => { if(d !== "LEFT") d = "RIGHT"; });
+
+        function drawSnake() {
+            ctx.fillStyle = "#121212";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < snake.length; i++) {
+                ctx.fillStyle = (i === 0) ? "#00ffcc" : "#00aa88";
+                ctx.fillRect(snake[i].x, snake[i].y, box, box);
+                ctx.strokeStyle = "#000";
+                ctx.strokeRect(snake[i].x, snake[i].y, box, box);
+            }
+
+            ctx.fillStyle = "red";
+            ctx.fillRect(food.x, food.y, box, box);
+
+            let snakeX = snake[0].x;
+            let snakeY = snake[0].y;
+
+            if (d === "LEFT") snakeX -= box;
+            if (d === "UP") snakeY -= box;
+            if (d === "RIGHT") snakeX += box;
+            if (d === "DOWN") snakeY += box;
+
+            if (snakeX === food.x && snakeY === food.y) {
+                score++;
+                scoreText.innerText = score;
+                food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
+            } else {
+                snake.pop();
+            }
+
+            let newHead = { x: snakeX, y: snakeY };
+
+            // Game Over Conditions
+            if (snakeX < 0 || snakeX >= canvas.width || snakeY < 0 || snakeY >= canvas.height || collision(newHead, snake)) {
+                clearInterval(game);
+                alert("Game Over! Aapka Score: " + score);
+                location.reload();
+            }
+
+            snake.unshift(newHead);
+        }
+
+        function collision(head, array) {
+            for (let i = 0; i < array.length; i++) {
+                if (head.x === array[i].x && head.y === array[i].y) return true;
+            }
+            return false;
+        }
+
+        let game = setInterval(drawSnake, 150);
+
+        // --- TIC TAC TOE LOGIC ---
+        const cells = document.querySelectorAll(".cell");
+        const statusText = document.getElementById("statusText");
+        const resetBtn = document.getElementById("resetBtn");
+        let currentPlayer = "X";
+        let boardState = ["", "", "", "", "", "", "", "", ""];
+        let isGameActive = true;
+
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ];
+
+        cells.forEach(cell => cell.addEventListener("click", () => {
+            const index = cell.getAttribute("data-index");
+            if (boardState[index] !== "" || !isGameActive) return;
+
+            boardState[index] = currentPlayer;
+            cell.innerText = currentPlayer;
+            cell.style.color = currentPlayer === "X" ? "#00ffcc" : "#ffcc00";
+
+            checkWinner();
+        }));
+
+        function checkWinner() {
+            let roundWon = false;
+            for (let i = 0; i < winPatterns.length; i++) {
+                const [a, b, c] = winPatterns[i];
+                if (boardState[a] && boardState[a] === boardState[b] && boardState[a] === boardState[c]) {
+                    roundWon = true;
+                    break;
+                }
+            }
+
+            if (roundWon) {
+                statusText.innerText = `Jeet gaye! Player ${currentPlayer} Jeet Gaya! 🎉`;
+                isGameActive = false;
+                return;
+            }
+
+            if (!boardState.includes("")) {
+                statusText.innerText = "Match Draw ho gaya! 🤝";
+                isGameActive = false;
+                return;
+            }
+
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            statusText.innerText = `Player ${currentPlayer} ki baari`;
+        }
+
+        resetBtn.addEventListener("click", () => {
+            currentPlayer = "X";
+            boardState = ["", "", "", "", "", "", "", "", ""];
+            isGameActive = true;
+            statusText.innerText = "Player X ki baari";
+            cells.forEach(cell => cell.innerText = "");
+        });
+    </script>
 
 </body>
 </html>
