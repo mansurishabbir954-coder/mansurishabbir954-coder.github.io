@@ -3,313 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed's 5-in-1 Mega Gaming Hub</title>
+    <title>Ahmed's Mega Online Game Store</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
-            text-align: center;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0b0b0e;
+            color: #ffffff;
+            text-align: center;
+            padding-bottom: 30px;
+        }
         header {
-            background-color: #1f1f1f;
-            padding: 15px;
-            font-size: 26px;
+            background: linear-gradient(145deg, #13131a, #1a1a24);
+            padding: 20px;
+            font-size: 28px;
             font-weight: bold;
             color: #00ffcc;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
             border-bottom: 3px solid #00ffcc;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .nav-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            background: #222;
-            padding: 10px 0;
-        }
-        .tab-btn {
-            background: #333;
-            color: white;
-            border: 2px solid #555;
-            padding: 10px 15px;
-            margin: 5px;
-            font-size: 14px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .tab-btn.active {
-            background: #00ffcc;
-            color: black;
-            border-color: #00ffcc;
-        }
-        .game-container {
-            display: none;
-            margin: 20px auto;
+        .welcome-box {
+            background: rgba(255, 255, 255, 0.03);
+            margin: 15px auto;
             padding: 15px;
-            max-width: 90%;
-            background: #1e1e1e;
-            border-radius: 10px;
-            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+            max-width: 95%;
+            border-radius: 8px;
+            border: 1px dashed #333;
         }
-        .game-container.active { display: block; }
-        h2 { color: #ffcc00; margin-top: 0; }
-
-        /* --- BUTTONS GENERAL --- */
-        .control-btn {
-            padding: 10px 15px;
-            font-size: 15px;
-            font-weight: bold;
-            border-radius: 5px;
+        .welcome-box h1 {
+            font-size: 22px;
+            color: #ffcc00;
+            margin-bottom: 5px;
+        }
+        .welcome-box p {
+            font-size: 14px;
+            color: #aaaaaa;
+        }
+        .store-section {
+            margin: 25px auto;
+            padding: 10px;
+            max-width: 95%;
+        }
+        .section-title {
+            font-size: 20px;
+            color: #00ffcc;
+            text-align: left;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #ff3333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .live-badge {
+            background: #ff3333;
+            color: white;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 12px;
+            animation: blink 1.5s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+        /* --- MEGA STORE EMBED --- */
+        .arcade-frame-wrapper {
+            position: relative;
+            width: 100%;
+            height: 75vh; /* Mobile screen ke hisab se badi height */
+            background: #111;
+            border: 3px solid #00ffcc;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.8);
+        }
+        .arcade-frame-wrapper iframe {
+            width: 100%;
+            height: 100%;
             border: none;
-            margin: 5px;
-            cursor: pointer;
         }
-
-        /* --- 1. SNAKE GAME --- */
-        #gameCanvas { background: #000; border: 2px solid #00ffcc; display: block; margin: 10px auto; max-width: 100%; }
-        .arrows { display: grid; grid-template-columns: repeat(3, 60px); grid-gap: 10px; justify-content: center; margin-top: 10px; }
-        .arrow-btn { background: #333; color: white; border: 2px solid #00ffcc; padding: 15px; font-size: 18px; border-radius: 5px; text-align: center; }
-        #up { grid-column: 2; } #left { grid-column: 1; } #right { grid-column: 3; } #down { grid-column: 2; }
-
-        /* --- 2. TIC TAC TOE --- */
-        .ttt-board { display: grid; grid-template-columns: repeat(3, 80px); grid-gap: 5px; justify-content: center; margin: 15px auto; }
-        .ttt-cell { width: 80px; height: 80px; background: #333; border: 2px solid #ffcc00; font-size: 32px; font-weight: bold; display: flex; align-items: center; justify-content: center; }
-
-        /* --- 3. CAR RACING --- */
-        #carCanvas { background: #222; border: 2px solid #ff3333; display: block; margin: 10px auto; max-width: 100%; }
-        .car-controls { display: flex; justify-content: center; gap: 20px; margin-top: 10px; }
-        .side-btn { background: #333; color: white; border: 2px solid #ff3333; padding: 15px 30px; font-size: 20px; border-radius: 5px; }
-
-        /* --- 4. LUDO MINI --- */
-        .ludo-board { width: 280px; height: 280px; border: 4px solid white; margin: 15px auto; position: relative; background: #eee; display: grid; grid-template-columns: repeat(2, 1fr); }
-        .ludo-zone { border: 1px solid #000; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: black; }
-        .red-zone { background: #ff4444; } .green-zone { background: #00c851; }
-        .yellow-zone { background: #ffbb33; } .blue-zone { background: #33b5e5; }
-        .goti { width: 24px; height: 24px; border-radius: 50%; border: 2px solid black; display: inline-block; position: relative; }
-        .dice-section { margin-top: 15px; font-size: 18px; }
-
-        /* --- 5. MEMORY GAME --- */
-        .mem-board { display: grid; grid-template-columns: repeat(4, 60px); grid-gap: 8px; justify-content: center; margin: 15px auto; }
-        .mem-card { width: 60px; height: 60px; background: #555; border-radius: 5px; font-size: 24px; display: flex; align-items: center; justify-content: center; color: transparent; }
-        .mem-card.flipped { color: white; background: #aa66cc; }
-        .mem-card.matched { background: #00c851; color: white; }
+        footer {
+            margin-top: 40px;
+            font-size: 13px;
+            color: #666;
+        }
     </style>
 </head>
 <body>
 
-    <header>🎮 Ahmed's Multi-Game Zone</header>
-    
-    <div class="nav-tabs">
-        <button class="tab-btn active" onclick="openGame('snake-tab')">🐍 Snake</button>
-        <button class="tab-btn" onclick="openGame('ttt-tab')">❌ Zero-Kanta</button>
-        <button class="tab-btn" onclick="openGame('car-tab')">🏎️ Car Race</button>
-        <button class="tab-btn" onclick="openGame('ludo-tab')">🎲 Mini Ludo</button>
-        <button class="tab-btn" onclick="openGame('mem-tab')">🧠 Memory Match</button>
+    <header>🎮 AHMED'S MEGA GAME STORE</header>
+
+    <div class="welcome-box">
+        <h1>Welcome to the Ultimate Arcade Hub!</h1>
+        <p>Yahan 150+ se zyada best HTML5 games hain. Kisi bhi game par click karo aur bina download kiye seedha apne mobile par khelo!</p>
     </div>
 
-    <div id="snake-tab" class="game-container active">
-        <h2>🐍 Snake Game (With Stop Option)</h2>
-        <button id="startBtn" class="control-btn" style="background:#00ffcc; color:black;">Play / Resume</button>
-        <button id="stopBtn" class="control-btn" style="background:#ff3333; color:white;">Stop / Pause 🛑</button>
-        <div style="font-size: 18px; margin: 5px;">Score: <span id="scoreText">0</span></div>
-        <canvas id="gameCanvas" width="300" height="300"></canvas>
-        <div class="arrows">
-            <div id="up" class="arrow-btn">▲</div>
-            <div id="left" class="arrow-btn">◀</div>
-            <div id="right" class="arrow-btn">▶</div>
-            <div id="down" class="arrow-btn">▼</div>
+    <div class="store-section">
+        <div class="section-title">
+            <span>🔥 All Premium Games Gallery</span>
+            <span class="live-badge">150+ GAMES LIVE</span>
+        </div>
+        
+        <div class="arcade-frame-wrapper">
+            <iframe src="https://html5.api.gamedistribution.com/directory/?partner=mansurishabbir954-coder" allowfullscreen="true" scrolling="yes"></iframe>
         </div>
     </div>
 
-    <div id="ttt-tab" class="game-container">
-        <h2>❌ Zero Kanta (Tic-Tac-Toe) ⭕</h2>
-        <div id="tttStatus" style="font-size:18px; margin-bottom:10px;">Player X ki baari</div>
-        <div class="ttt-board">
-            <div class="ttt-cell" onclick="playTTT(this, 0)"></div>
-            <div class="ttt-cell" onclick="playTTT(this, 1)"></div>
-            <div class="ttt-cell" onclick="playTTT(this, 2)"></div>
-            <div class="ttt-cell" onclick="playTTT(this, 3)"></div>
-            <div class="ttt-cell" onclick="playTTT(this, 4)"></div>
-            <div class="ttt-cell" onclick="playTTT(this, 5)"></div>
-            <div class="ttt-cell" onclick="playTTT(this, 6)"></div>
-            <div class="ttt-cell" onclick="playTTT(this, 7)"></div>
-            <div class="ttt-cell" onclick="playTTT(this, 8)"></div>
+    <div class="store-section">
+        <div class="section-title">
+            <span>🎯 Action & Sports Zone (Y8 Catalog)</span>
         </div>
-        <button class="control-btn" style="background:#ffcc00; color:black;" onclick="resetTTT()">Reset Board</button>
-    </div>
-
-    <div id="car-tab" class="game-container">
-        <h2>🏎️ Avoid the Blocks (Car Race)</h2>
-        <button class="control-btn" style="background:#00ffcc; color:black;" onclick="startCarGame()">Start Race</button>
-        <div style="font-size:18px; margin:5px;">Score: <span id="carScore">0</span></div>
-        <canvas id="carCanvas" width="240" height="320"></canvas>
-        <div class="car-controls">
-            <button class="side-btn" id="carLeft">◀</button>
-            <button class="side-btn" id="carRight">▶</button>
+        
+        <div class="arcade-frame-wrapper" style="border-color: #ffcc00; height: 70vh;">
+            <iframe src="https://games.api.gnetmedia.com/showcase/free-games?theme=dark" allowfullscreen="true" scrolling="yes"></iframe>
         </div>
     </div>
 
-    <div id="ludo-tab" class="game-container">
-        <h2>🎲 Ludo Race (2 Players)</h2>
-        <p>Goti ko aage badhane ke liye Dice roll karo!</p>
-        <div class="ludo-board">
-            <div class="ludo-zone red-zone">Red Home<br><span id="redGoti" class="goti" style="background:red;"></span></div>
-            <div class="ludo-zone green-zone">Goal ✨</div>
-            <div class="ludo-zone blue-zone">Goal ✨</div>
-            <div class="ludo-zone yellow-zone">Yellow Home<br><span id="yellowGoti" class="goti" style="background:yellow;"></span></div>
-        </div>
-        <div class="dice-section">
-            <span id="turnText" style="color:#00ffcc;">Red Turn!</span><br><br>
-            <button class="control-btn" style="background:white; color:black;" onclick="rollDice()">🎲 Roll Dice</button>
-            <span id="diceResult" style="font-weight:bold; font-size:22px; margin-left:10px;">-</span>
-        </div>
-    </div>
+    <footer>
+        <p>&copy; 2026 Ahmed's Game Store. Powered by Auto-Arcade Engine.</p>
+    </footer>
 
-    <div id="mem-tab" class="game-container">
-        <h2>🧠 Brain Memory Card Match</h2>
-        <p>Do same emoji dhoondo aur jito!</p>
-        <div class="mem-board" id="memBoard"></div>
-        <button class="control-btn" style="background:#aa66cc; color:white;" onclick="initMemoryGame()">Reset Brain Game</button>
-    </div>
-
-    <script>
-        // Tab switching function
-        function openGame(tabId) {
-            stopSnakeGame();
-            clearInterval(carInterval);
-            let containers = document.querySelectorAll('.game-container');
-            containers.forEach(c => c.classList.remove('active'));
-            let tabs = document.querySelectorAll('.tab-btn');
-            tabs.forEach(t => t.classList.remove('active'));
-            
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-            
-            if(tabId === 'mem-tab') initMemoryGame();
-        }
-
-        // --- 1. SNAKE GAME CODE ---
-        const canvas = document.getElementById("gameCanvas");
-        const ctx = canvas.getContext("2d");
-        const scoreText = document.getElementById("scoreText");
-        const box = 15;
-        let snake = [{ x: 10 * box, y: 10 * box }];
-        let food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
-        let score = 0; let d = "RIGHT"; let gameInterval = null; let isGameRunning = false;
-
-        document.getElementById("startBtn").addEventListener("click", () => { if(!isGameRunning) { gameInterval = setInterval(drawSnake, 260); isGameRunning = true; } });
-        document.getElementById("stopBtn").addEventListener("click", stopSnakeGame);
-        function stopSnakeGame() { clearInterval(gameInterval); isGameRunning = false; }
-
-        document.getElementById("up").addEventListener("click", () => { if(d !== "DOWN") d = "UP"; });
-        document.getElementById("down").addEventListener("click", () => { if(d !== "UP") d = "DOWN"; });
-        document.getElementById("left").addEventListener("click", () => { if(d !== "RIGHT") d = "LEFT"; });
-        document.getElementById("right").addEventListener("click", () => { if(d !== "LEFT") d = "RIGHT"; });
-
-        function drawSnake() {
-            ctx.fillStyle = "#000"; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            for(let i=0; i<snake.length; i++) {
-                ctx.fillStyle = (i === 0) ? "#00ffcc" : "#00aa88";
-                ctx.fillRect(snake[i].x, snake[i].y, box, box);
-            }
-            ctx.fillStyle = "red"; ctx.fillRect(food.x, food.y, box, box);
-            let snakeX = snake[0].x; let snakeY = snake[0].y;
-            if (d === "LEFT") snakeX -= box; if (d === "UP") snakeY -= box;
-            if (d === "RIGHT") snakeX += box; if (d === "DOWN") snakeY += box;
-            if (snakeX === food.x && snakeY === food.y) {
-                score++; scoreText.innerText = score;
-                food = { x: Math.floor(Math.random() * 20) * box, y: Math.floor(Math.random() * 20) * box };
-            } else { snake.pop(); }
-            let newHead = { x: snakeX, y: snakeY };
-            if (snakeX < 0 || snakeX >= canvas.width || snakeY < 0 || snakeY >= canvas.height || collision(newHead, snake)) {
-                stopSnakeGame(); alert("Game Over! Score: " + score);
-                snake = [{ x: 10 * box, y: 10 * box }]; score = 0; scoreText.innerText = score; d = "RIGHT";
-                return;
-            }
-            snake.unshift(newHead);
-        }
-        function collision(head, array) { for(let i=0; i<array.length; i++) { if(head.x===array[i].x && head.y===array[i].y) return true; } return false; }
-
-        // --- 2. TIC TAC TOE CODE ---
-        let tttPlayer = "X"; let tttState = ["","","","","","","","",""]; let tttActive = true;
-        function playTTT(cell, idx) {
-            if(tttState[idx] !== "" || !tttActive) return;
-            tttState[idx] = tttPlayer; cell.innerText = tttPlayer;
-            cell.style.color = tttPlayer === "X" ? "#00ffcc" : "#ffcc00";
-            if(checkTTTWin()) { document.getElementById("tttStatus").innerText = "Player " + tttPlayer + " Jeet Gaya! 🎉"; tttActive = false; }
-            else if(!tttState.includes("")) { document.getElementById("tttStatus").innerText = "Match Draw! 🤝"; tttActive = false; }
-            else { tttPlayer = tttPlayer === "X" ? "O" : "X"; document.getElementById("tttStatus").innerText = "Player " + tttPlayer + " ki baari"; }
-        }
-        function checkTTTWin() {
-            const p = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-            return p.some(r => tttState[r[0]] && tttState[r[0]] === tttState[r[1]] && tttState[r[0]] === tttState[r[2]]);
-        }
-        function resetTTT() {
-            tttPlayer = "X"; tttState = ["","","","","","","","",""]; tttActive = true;
-            document.getElementById("tttStatus").innerText = "Player X ki baari";
-            document.querySelectorAll('.ttt-cell').forEach(c => c.innerText = "");
-        }
-
-        // --- 3. CAR RACING CODE ---
-        const carCan = document.getElementById("carCanvas"); const carCtx = carCan.getContext("2d");
-        let carX = 100; let blockY = -50; let blockX = 80; let carScoreNum = 0; let carInterval = null;
-        function startCarGame() {
-            carX = 100; blockY = -50; blockX = Math.floor(Math.random() * 3) * 80; carScoreNum = 0;
-            document.getElementById("carScore").innerText = carScoreNum;
-            clearInterval(carInterval); carInterval = setInterval(updateCarGame, 50);
-        }
-        document.getElementById("carLeft").addEventListener("click", () => { if(carX > 20) carX -= 80; });
-        document.getElementById("carRight").addEventListener("click", () => { if(carX < 180) carX += 80; });
-        function updateCarGame() {
-            carCtx.fillStyle = "#222"; carCtx.fillRect(0,0,carCan.width,carCan.height);
-            // Block
-            carCtx.fillStyle = "#ff3333"; carCtx.fillRect(blockX, blockY, 60, 40);
-            blockY += 10;
-            if(blockY > 320) { blockY = -40; blockX = Math.floor(Math.random() * 3) * 80; carScoreNum++; document.getElementById("carScore").innerText = carScoreNum; }
-            // My Car
-            carCtx.fillStyle = "#00ffcc"; carCtx.fillRect(carX, 260, 40, 50);
-            // Collision Check
-            if(blockY + 40 >= 260 && blockX < carX + 40 && blockX + 60 > carX) { clearInterval(carInterval); alert("Accident Ho Gaya! Final Score: " + carScoreNum); }
-        }
-
-        // --- 4. MINI LUDO CODE ---
-        let currentLudoPlayer = "Red";
-        function rollDice() {
-            let num = Math.floor(Math.random() * 6) + 1;
-            document.getElementById("diceResult").innerText = num;
-            if(currentLudoPlayer === "Red") {
-                document.getElementById("redGoti").style.left = (num * 15) + "px";
-                currentLudoPlayer = "Yellow"; document.getElementById("turnText").innerText = "Yellow Turn!"; document.getElementById("turnText").style.color = "yellow";
-            } else {
-                document.getElementById("yellowGoti").style.right = (num * 15) + "px";
-                currentLudoPlayer = "Red"; document.getElementById("turnText").innerText = "Red Turn!"; document.getElementById("turnText").style.color = "red";
-            }
-        }
-
-        // --- 5. MEMORY GAME CODE ---
-        const emojis = ["🎮","🎮","🏎️","🏎️","🎲","🎲","🥇","🥇","🔥","🔥","💎","💎"];
-        let choice = [];
-        function initMemoryGame() {
-            let board = document.getElementById("memBoard"); board.innerHTML = ""; choice = [];
-            let shuffled = emojis.sort(() => 0.5 - Math.random());
-            for(let i=0; i<shuffled.length; i++) {
-                let card = document.createElement("div"); card.classList.add("mem-card");
-                card.dataset.val = shuffled[i]; card.innerText = shuffled[i];
-                card.onclick = function() { flipCard(this); };
-                board.appendChild(card);
-            }
-        }
-        function flipCard(card) {
-            if(choice.length < 2 && !card.classList.contains("flipped")) {
-                card.classList.add("flipped"); choice.push(card);
-                if(choice.length === 2) {
-                    if(choice[0].dataset.val === choice[1].dataset.val) { choice[0].classList.add("matched"); choice[1].classList.add("matched"); choice = []; }
-                    else { setTimeout(() => { choice[0].classList.remove("flipped"); choice[1].classList.remove("flipped"); choice = []; }, 800); }
-                }
-            }
-        }
-    </script>
 </body>
 </html>
