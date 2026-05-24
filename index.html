@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed's Ultimate 150+ Game Grid Store</title>
+    <title>Ahmed's Ultimate 100 Premium Games Store</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background-color: #06060c;
@@ -17,9 +13,9 @@
             padding-bottom: 30px;
         }
         header {
-            background: linear-gradient(135deg, #0f0f1d, #141426);
+            background: linear-gradient(135deg, #0d0d1a, #121224);
             padding: 15px;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: #00ffcc;
             text-align: center;
@@ -36,18 +32,17 @@
             color: #ffcc00;
             font-weight: bold;
         }
-        /* GAME GRID DESIGN */
         .game-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            grid-gap: 12px;
-            padding: 15px;
+            grid-gap: 10px;
+            padding: 12px;
             max-width: 1200px;
             margin: 0 auto;
         }
         .game-card {
-            background: #11111e;
-            border: 2px solid #222235;
+            background: #111122;
+            border: 2px solid #202035;
             border-radius: 10px;
             overflow: hidden;
             cursor: pointer;
@@ -66,15 +61,14 @@
             display: block;
         }
         .game-title {
-            font-size: 11px;
-            padding: 6px 4px;
+            font-size: 10px;
+            padding: 5px 2px;
             color: #eeeeee;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            font-weight: 6px;
+            font-weight: bold;
         }
-        /* POPUP SCREEN FOR PLAYING GAME */
         .game-popup {
             display: none;
             position: fixed;
@@ -94,49 +88,126 @@
             align-items: center;
             border-bottom: 2px solid #00ffcc;
         }
-        .popup-title {
-            color: #00ffcc;
-            font-weight: bold;
-            font-size: 16px;
-        }
+        .popup-title { color: #00ffcc; font-weight: bold; font-size: 15px; }
         .close-btn {
-            background: #ff3333;
-            color: white;
-            border: none;
-            padding: 6px 14px;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
+            background: #ff3333; color: white; border: none; padding: 6px 12px;
+            font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 13px;
         }
-        .iframe-container {
-            flex: 1;
-            width: 100%;
-            height: 100%;
-            background: #000;
-        }
-        .iframe-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        #loading {
-            text-align: center;
-            font-size: 18px;
-            color: #00ffcc;
-            margin-top: 50px;
-        }
+        .iframe-container { flex: 1; width: 100%; height: 100%; background: #000; }
+        .iframe-container iframe { width: 100%; height: 100%; border: none; }
     </style>
 </head>
 <body>
 
-    <header>🎮 AHMED'S 150+ GRID STORE</header>
-    
-    <div class="intro-text">🔥 Sabhi games ek sath! Kisi bhi game par click karke khelo:</div>
+    <header>🎮 AHMED'S 100 GAMES MEGA MALL</header>
+    <div class="intro-text">🔥 POORE 100 PREMIUM GAMES LIVE! APNA FAVORITE CHOOSE KARO:</div>
 
-    <div id="loading">Games Load Ho Rahe Hain, Sabr Rakhein... ⏳</div>
+    <div class="game-grid">
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/classic-bowling/embed', 'Classic Bowling')"><img src="https://images.gamepix.com/classic-bowling/thumbnail/small.png"><div class="game-title">Bowling</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/moto-x3m/embed', 'Moto X3M')"><img src="https://images.gamepix.com/moto-x3m/thumbnail/small.png"><div class="game-title">Moto X3M</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/cricket-world-cup/embed', 'Cricket Cup')"><img src="https://images.gamepix.com/cricket-world-cup/thumbnail/small.png"><div class="game-title">Cricket Cup</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/ludo-fever/embed', 'Ludo Fever')"><img src="https://images.gamepix.com/ludo-fever/thumbnail/small.png"><div class="game-title">Ludo Fever</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/bubble-shooter/embed', 'Bubble Shooter')"><img src="https://images.gamepix.com/bubble-shooter/thumbnail/small.png"><div class="game-title">Bubble Shoot</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/solitaire/embed', 'Solitaire')"><img src="https://images.gamepix.com/solitaire/thumbnail/small.png"><div class="game-title">Solitaire</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/table-tennis/embed', 'Table Tennis')"><img src="https://images.gamepix.com/table-tennis/thumbnail/small.png"><div class="game-title">Table Tennis</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/traffic-tom/embed', 'Traffic Tom')"><img src="https://images.gamepix.com/traffic-tom/thumbnail/small.png"><div class="game-title">Traffic Tom</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/cut-the-rope/embed', 'Cut The Rope')"><img src="https://images.gamepix.com/cut-the-rope/thumbnail/small.png"><div class="game-title">Cut The Rope</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/penalty-challenge/embed', 'Penalty Kick')"><img src="https://images.gamepix.com/penalty-challenge/thumbnail/small.png"><div class="game-title">Penalty Kick</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/zombie-derby/embed', 'Zombie Derby')"><img src="https://images.gamepix.com/zombie-derby/thumbnail/small.png"><div class="game-title">Zombie Derby</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/archery-world-tour/embed', 'Archery Tour')"><img src="https://images.gamepix.com/archery-world-tour/thumbnail/small.png"><div class="game-title">Archery Tour</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/chess/embed', 'Master Chess')"><img src="https://images.gamepix.com/chess/thumbnail/small.png"><div class="game-title">Master Chess</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/basketball-legend/embed', 'Basketball')"><img src="https://images.gamepix.com/basketball-legend/thumbnail/small.png"><div class="game-title">Basketball</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/flappy-bird/embed', 'Flappy Bird')"><img src="https://images.gamepix.com/flappy-bird/thumbnail/small.png"><div class="game-title">Flappy Bird</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/knife-rain/embed', 'Knife Hit')"><img src="https://images.gamepix.com/knife-rain/thumbnail/small.png"><div class="game-title">Knife Hit</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/color-road/embed', 'Color Road')"><img src="https://images.gamepix.com/color-road/thumbnail/small.png"><div class="game-title">Color Road</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/angry-aliens/embed', 'Angry Aliens')"><img src="https://images.gamepix.com/angry-aliens/thumbnail/small.png"><div class="game-title">Angry Aliens</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/subway-runner/embed', 'Subway Runner')"><img src="https://images.gamepix.com/subway-runner/thumbnail/small.png"><div class="game-title">Subway Run</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/pool-8-ball/embed', '8 Ball Pool')"><img src="https://images.gamepix.com/pool-8-ball/thumbnail/small.png"><div class="game-title">8 Ball Pool</div></div>
 
-    <div class="game-grid" id="gridDisplay"></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/runner-coaster/embed', 'Coaster Run')"><img src="https://images.gamepix.com/runner-coaster/thumbnail/small.png"><div class="game-title">Coaster Run</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/car-draw/embed', 'Draw Car')"><img src="https://images.gamepix.com/car-draw/thumbnail/small.png"><div class="game-title">Draw Car</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/fruit-ninja-classic/embed', 'Fruit Slasher')"><img src="https://images.gamepix.com/fruit-ninja-classic/thumbnail/small.png"><div class="game-title">Fruit Ninja</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/temple-run/embed', 'Temple Chase')"><img src="https://images.gamepix.com/temple-run/thumbnail/small.png"><div class="game-title">Temple Chase</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/ludo-legend/embed', 'Ludo Legend')"><img src="https://images.gamepix.com/ludo-legend/thumbnail/small.png"><div class="game-title">Ludo Legend</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/block-champ/embed', 'Block Champ')"><img src="https://images.gamepix.com/block-champ/thumbnail/small.png"><div class="game-title">Block Champ</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/mahjong-classic/embed', 'Mahjong')"><img src="https://images.gamepix.com/mahjong-classic/thumbnail/small.png"><div class="game-title">Mahjong</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/word-search/embed', 'Word Search')"><img src="https://images.gamepix.com/word-search/thumbnail/small.png"><div class="game-title">Word Search</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/pac-xf/embed', 'Pac-Man Clone')"><img src="https://images.gamepix.com/pac-xf/thumbnail/small.png"><div class="game-title">Retro Eater</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/tetris-cube/embed', 'Tetris Cube')"><img src="https://images.gamepix.com/tetris-cube/thumbnail/small.png"><div class="game-title">Tetris Cube</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/badland/embed', 'Badland Run')"><img src="https://images.gamepix.com/badland/thumbnail/small.png"><div class="game-title">Badland Fly</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/hills-mount-race/embed', 'Hill Climb')"><img src="https://images.gamepix.com/hills-mount-race/thumbnail/small.png"><div class="game-title">Hill Climb</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/soccer-caps-league/embed', 'Caps Soccer')"><img src="https://images.gamepix.com/soccer-caps-league/thumbnail/small.png"><div class="game-title">Caps Soccer</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/stickman-fighter/embed', 'Stickman Fight')"><img src="https://images.gamepix.com/stickman-fighter/thumbnail/small.png"><div class="game-title">Stickman</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/geometry-dash-neon/embed', 'Geometry Neon')"><img src="https://images.gamepix.com/geometry-dash-neon/thumbnail/small.png"><div class="game-title">Geo Dash</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/tower-crash/embed', 'Tower Crash')"><img src="https://images.gamepix.com/tower-crash/thumbnail/small.png"><div class="game-title">Tower Crash</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/neon-guitar/embed', 'Neon Guitar Hero')"><img src="https://images.gamepix.com/neon-guitar/thumbnail/small.png"><div class="game-title">Guitar Hero</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/super-mario-run/embed', 'Plumber Run')"><img src="https://images.gamepix.com/super-mario-run/thumbnail/small.png"><div class="game-title">Plumber Run</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/slither-io-skin/embed', 'Snake Arena')"><img src="https://images.gamepix.com/slither-io-skin/thumbnail/small.png"><div class="game-title">Snake Arena</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/jewel-crush/embed', 'Jewel Blast')"><img src="https://images.gamepix.com/jewel-crush/thumbnail/small.png"><div class="game-title">Jewel Blast</div></div>
+
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/crossy-road/embed', 'Crossy Road')"><img src="https://images.gamepix.com/crossy-road/thumbnail/small.png"><div class="game-title">Crossy Road</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/drift-boss/embed', 'Drift Boss')"><img src="https://images.gamepix.com/drift-boss/thumbnail/small.png"><div class="game-title">Drift Boss</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/cyber-truck-drive/embed', 'Cyber Truck')"><img src="https://images.gamepix.com/cyber-truck-drive/thumbnail/small.png"><div class="game-title">Cyber Truck</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/mine-clone/embed', 'Block Craft')"><img src="https://images.gamepix.com/mine-clone/thumbnail/small.png"><div class="game-title">Block Craft</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/among-us-arena/embed', 'Space Impostor')"><img src="https://images.gamepix.com/among-us-arena/thumbnail/small.png"><div class="game-title">Impostor</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/helix-jump-neon/embed', 'Helix Drop')"><img src="https://images.gamepix.com/helix-jump-neon/thumbnail/small.png"><div class="game-title">Helix Drop</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/tank-hero/embed', 'Tank Battle')"><img src="https://images.gamepix.com/tank-hero/thumbnail/small.png"><div class="game-title">Tank Battle</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/spider-solitaire/embed', 'Spider Cards')"><img src="https://images.gamepix.com/spider-solitaire/thumbnail/small.png"><div class="game-title">Spider Card</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/dunk-shot/embed', 'Dunk Basket')"><img src="https://images.gamepix.com/dunk-shot/thumbnail/small.png"><div class="game-title">Dunk Basket</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/tiles-hop/embed', 'Tiles Ball Jump')"><img src="https://images.gamepix.com/tiles-hop/thumbnail/small.png"><div class="game-title">Tiles Hop</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/parking-jam/embed', 'Parking escape')"><img src="https://images.gamepix.com/parking-jam/thumbnail/small.png"><div class="game-title">Parking Jam</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/sudoku-classic/embed', 'Sudoku Logic')"><img src="https://images.gamepix.com/sudoku-classic/thumbnail/small.png"><div class="game-title">Sudoku</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/freecell/embed', 'Freecell Cards')"><img src="https://images.gamepix.com/freecell/thumbnail/small.png"><div class="game-title">Freecell</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/neon-pong/embed', 'Classic Pong')"><img src="https://images.gamepix.com/neon-pong/thumbnail/small.png"><div class="game-title">Neon Pong</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/duck-hunter/embed', 'Duck Shoot')"><img src="https://images.gamepix.com/duck-hunter/thumbnail/small.png"><div class="game-title">Duck Shoot</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/ping-pong/embed', 'Paddle Tennis')"><img src="https://images.gamepix.com/ping-pong/thumbnail/small.png"><div class="game-title">Ping Pong</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/word-connect/embed', 'Word Brain')"><img src="https://images.gamepix.com/word-connect/thumbnail/small.png"><div class="game-title">Word Links</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/classic-minesweeper/embed', 'Bomb Sweeper')"><img src="https://images.gamepix.com/classic-minesweeper/thumbnail/small.png"><div class="game-title">Minesweep</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/color-switch/embed', 'Color Switch')"><img src="https://images.gamepix.com/color-switch/thumbnail/small.png"><div class="game-title">Color Switch</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/2048-puzzle/embed', '2048 Block')"><img src="https://images.gamepix.com/2048-puzzle/thumbnail/small.png"><div class="game-title">2048 Game</div></div>
+
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/neon-billiard/embed', '8 Pool Neon')"><img src="https://images.gamepix.com/neon-billiard/thumbnail/small.png"><div class="game-title">Neon Pool</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/monster-truck/embed', 'Truck Climb')"><img src="https://images.gamepix.com/monster-truck/thumbnail/small.png"><div class="game-title">Monster Truck</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/bubble-wrap/embed', 'Pop Bubble Pop')"><img src="https://images.gamepix.com/bubble-wrap/thumbnail/small.png"><div class="game-title">Bubble Pop</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/street-racing/embed', 'Speed Nitro Racer')"><img src="https://images.gamepix.com/street-racing/thumbnail/small.png"><div class="game-title">Nitro Race</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/ludo-play/embed', 'Ludo Classic 2')"><img src="https://images.gamepix.com/ludo-play/thumbnail/small.png"><div class="game-title">Ludo Classic</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/zombie-hunter/embed', 'Zombie Survival')"><img src="https://images.gamepix.com/zombie-hunter/thumbnail/small.png"><div class="game-title">Zombie Hunt</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/jetpack-joyride/embed', 'Fly Jetpack')"><img src="https://images.gamepix.com/jetpack-joyride/thumbnail/small.png"><div class="game-title">Jetpack Fly</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/fruit-break/embed', 'Fruit Squeeze')"><img src="https://images.gamepix.com/fruit-break/thumbnail/small.png"><div class="game-title">Fruit Break</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/knife-hit-ninja/embed', 'Ninja Knife Throw')"><img src="https://images.gamepix.com/knife-hit-ninja/thumbnail/small.png"><div class="game-title">Ninja Knife</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/gold-miner/embed', 'Gold Miner Hook')"><img src="https://images.gamepix.com/gold-miner/thumbnail/small.png"><div class="game-title">Gold Miner</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/cricket-batter/embed', 'Pro Cricket 2D')"><img src="https://images.gamepix.com/cricket-batter/thumbnail/small.png"><div class="game-title">Cricket Bat</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/retro-race/embed', 'Pixel Car Race')"><img src="https://images.gamepix.com/retro-race/thumbnail/small.png"><div class="game-title">Pixel Race</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/candy-crush-saga/embed', 'Candy Match')"><img src="https://images.gamepix.com/candy-crush-saga/thumbnail/small.png"><div class="game-title">Candy Match</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/subway-surf/embed', 'Train Surfers')"><img src="https://images.gamepix.com/subway-surf/thumbnail/small.png"><div class="game-title">Train Surf</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/totem-destroyer/embed', 'Block Balance')"><img src="https://images.gamepix.com/totem-destroyer/thumbnail/small.png"><div class="game-title">Block Blast</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/cyber-soldier/embed', 'Metal Rambo')"><img src="https://images.gamepix.com/cyber-soldier/thumbnail/small.png"><div class="game-title">Cyber Soldier</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/tower-defense/embed', 'Army Base Save')"><img src="https://images.gamepix.com/tower-defense/thumbnail/small.png"><div class="game-title">Base Defense</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/bowmaster/embed', 'Archer Target')"><img src="https://images.gamepix.com/bowmaster/thumbnail/small.png"><div class="game-title">Bow Master</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/glow-hockey/embed', 'Neon Air Hockey')"><img src="https://images.gamepix.com/glow-hockey/thumbnail/small.png"><div class="game-title">Glow Hockey</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/bubble-hero/embed', 'Rescue Squirrel')"><img src="https://images.gamepix.com/bubble-hero/thumbnail/small.png"><div class="game-title">Bubble Hero</div></div>
+
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/tic-tac-toe/embed', 'OX Board')"><img src="https://images.gamepix.com/tic-tac-toe/thumbnail/small.png"><div class="game-title">Zero Kanta</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/math-vs-bat/embed', 'Math Battle')"><img src="https://images.gamepix.com/math-vs-bat/thumbnail/small.png"><div class="game-title">Math Battle</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/hex-puzzle/embed', 'Block Hexa')"><img src="https://images.gamepix.com/hex-puzzle/thumbnail/small.png"><div class="game-title">Hexa Block</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/pixel-art/embed', 'Color Drawing')"><img src="https://images.gamepix.com/pixel-art/thumbnail/small.png"><div class="game-title">Pixel Art</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/space-invaders/embed', 'Galaxy Attack')"><img src="https://images.gamepix.com/space-invaders/thumbnail/small.png"><div class="game-title">Galaxy Fight</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/chess-online/embed', 'Live Chess Pro')"><img src="https://images.gamepix.com/chess-online/thumbnail/small.png"><div class="game-title">Chess Arena</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/moto-pool/embed', 'Bike Stunt 3D')"><img src="https://images.gamepix.com/moto-pool/thumbnail/small.png"><div class="game-title">Bike Stunts</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/crazy-runner/embed', 'Infinite Run')"><img src="https://images.gamepix.com/crazy-runner/thumbnail/small.png"><div class="game-title">Crazy Run</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/pool-billiard/embed', '9 Ball Billiard')"><img src="https://images.gamepix.com/pool-billiard/thumbnail/small.png"><div class="game-title">Billiard Pro</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/box-tower/embed', 'Stack Box Up')"><img src="https://images.gamepix.com/box-tower/thumbnail/small.png"><div class="game-title">Box Stacker</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/sonic-run/embed', 'Hedgehog Runner')"><img src="https://images.gamepix.com/sonic-run/thumbnail/small.png"><div class="game-title">Hedgehog Run</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/memory-brain/embed', 'Card Match IQ')"><img src="https://images.gamepix.com/memory-brain/thumbnail/small.png"><div class="game-title">Memory IQ</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/zombie-tsunami/embed', 'Zombie Run Horde')"><img src="https://images.gamepix.com/zombie-tsunami/thumbnail/small.png"><div class="game-title">Zombie Crowd</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/angry-chickens/embed', 'Slither Chicken')"><img src="https://images.gamepix.com/angry-chickens/thumbnail/small.png"><div class="game-title">Egg Slither</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/ninja-run/embed', 'Shinobi Roof Jump')"><img src="https://images.gamepix.com/ninja-run/thumbnail/small.png"><div class="game-title">Ninja Dash</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/dino-run/embed', 'T-Rex Chrome Run')"><img src="https://images.gamepix.com/dino-run/thumbnail/small.png"><div class="game-title">Dino Pixel</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/bubble-blast/embed', 'Chain Pop Pop')"><img src="https://images.gamepix.com/bubble-blast/thumbnail/small.png"><div class="game-title">Bubble Pop</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/penalty-kick/embed', 'Soccer Goal Pro')"><img src="https://images.gamepix.com/penalty-kick/thumbnail/small.png"><div class="game-title">Soccer Strike</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/drift-racer/embed', 'Car Drift Max')"><img src="https://images.gamepix.com/drift-racer/thumbnail/small.png"><div class="game-title">Car Drift</div></div>
+        <div class="game-card" onclick="openGame('https://play.gamepix.com/ludo-star/embed', 'Ludo Master Club')"><img src="https://images.gamepix.com/ludo-star/thumbnail/small.png"><div class="game-title">Ludo Star</div></div>
+    </div>
 
     <div class="game-popup" id="gamePopup">
         <div class="popup-header">
@@ -149,55 +220,15 @@
     </div>
 
     <script>
-        // GamePix ki official feed jisse 150+ top games auto-fetch honge
-        const feedUrl = "https://feed.gamepix.com/v2/json?collection=featured&num=150";
-
-        async function loadStoreGames() {
-            try {
-                const response = await fetch(feedUrl);
-                const data = await response.json();
-                
-                if(data && data.data) {
-                    document.getElementById('loading').style.display = 'none';
-                    const grid = document.getElementById('gridDisplay');
-                    
-                    data.data.forEach(game => {
-                        // Card Banana har ek game ke liye
-                        const card = document.createElement('div');
-                        card.classList.add('game-card');
-                        // GamePix ka secured direct play link
-                        const playUrl = `https://play.gamepix.com/${game.id}?token=FREE-GAMES&theme=dark`;
-                        
-                        card.onclick = function() {
-                            openGame(playUrl, game.title);
-                        };
-
-                        card.innerHTML = `
-                            <img src="${game.thumbnailUrl || 'https://via.placeholder.com/150'}" alt="${game.title}" loading="lazy">
-                            <div class="game-title">${game.title}</div>
-                        `;
-                        grid.appendChild(card);
-                    });
-                }
-            } catch (error) {
-                document.getElementById('loading').innerText = "Oops! Network slow hai, page refresh kariye.";
-                console.error(error);
-            }
-        }
-
         function openGame(url, title) {
             document.getElementById('currentPlayingTitle').innerText = title.toUpperCase();
             document.getElementById('gamePlayer').src = url;
             document.getElementById('gamePopup').style.display = 'flex';
         }
-
         function closeGame() {
             document.getElementById('gamePopup').style.display = 'none';
-            document.getElementById('gamePlayer').src = ''; // Game stop karne ke liye
+            document.getElementById('gamePlayer').src = '';
         }
-
-        // Page khulte hi games load honge
-        window.onload = loadStoreGames;
     </script>
 </body>
 </html>
