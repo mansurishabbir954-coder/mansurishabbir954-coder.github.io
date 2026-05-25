@@ -1,246 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2468600181930460"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2468600181930460" crossorigin="anonymous"></script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed's Ultimate 100 Premium Games Store</title>
-    <meta name="description" content="Ahmed Raza's Official 100 Games Mega Mall. Play free online games like cricket, ludo, racing on Ahmed's gaming site.">
-<meta name="keywords" content="Ahmed Raza, Ahmed gaming site, my gaming site, my gaming zone, Ahmed's 100 games">
-<meta name="author" content="Ahmed Raza">
-    <meta name="google-site-verification" content="waOFjgOw-IExzDNjGdTmJPyLOXqJVTPTjyrViCVL6nQ" />
-
+    <title>Ahmed's Premium Ultimate Games</title>
+    <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE">
+    
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #06060c;
-            color: #ffffff;
-            padding-bottom: 30px;
-        }
-        header {
-            background: linear-gradient(135deg, #0d0d1a, #121224);
-            padding: 15px;
-            font-size: 22px;
-            font-weight: bold;
-            color: #00ffcc;
-            text-align: center;
-            text-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
-            border-bottom: 3px solid #00ffcc;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .intro-text {
-            text-align: center;
-            margin: 15px auto;
-            font-size: 14px;
-            color: #ffcc00;
-            font-weight: bold;
-        }
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            grid-gap: 12px;
-            padding: 15px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .game-card {
-            background: #111122;
-            border: 2px solid #202035;
-            border-radius: 12px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 5px;
-            height: 120px;
-        }
-        .game-card:active {
-            transform: scale(0.95);
-            border-color: #00ffcc;
-        }
-        .game-icon {
-            font-size: 40px;
-            margin-bottom: 10px;
-            user-select: none;
-        }
-        .game-title {
-            font-size: 11px;
-            color: #eeeeee;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-weight: bold;
-            width: 100%;
-        }
-        .game-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 1000;
-            flex-direction: column;
-        }
-        .popup-header {
-            background: #111;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #00ffcc;
-        }
-        .popup-title { color: #00ffcc; font-weight: bold; font-size: 15px; }
-        .close-btn {
-            background: #ff3333; color: white; border: none; padding: 6px 12px;
-            font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 13px;
-        }
-        .iframe-container { flex: 1; width: 100%; height: 100%; background: #000; }
-        .iframe-container iframe { width: 100%; height: 100%; border: none; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #06060c; color: #ffffff; padding-bottom: 30px; }
+        header { background: linear-gradient(135deg, #12122c, #09091e); padding: 20px; text-align: center; border-bottom: 3px solid #00ffcc; position: sticky; top: 0; z-index: 100; }
+        header h1 { font-size: 24px; color: #00ffcc; text-shadow: 0 0 15px rgba(0, 255, 204, 0.5); }
+        .intro-text { text-align: center; margin: 20px 10px; color: #a0a0c0; font-size: 14px; }
+        
+        .games-grid { display: block; max-width: 800px; margin: 0 auto; padding: 10px; }
+        .game-card { background: #131326; margin-bottom: 25px; border-radius: 12px; overflow: hidden; border: 1px solid #232343; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .game-title { background: #1a1a3a; padding: 12px; font-size: 16px; font-weight: bold; color: #fff; border-bottom: 1px solid #232343; text-align: center; }
+        .game-frame { width: 100%; height: 450px; border: none; display: block; background: #000; }
     </style>
 </head>
 <body>
 
-    <header>🎮 AHMED'S 100 GAMES MEGA MALL</header>
-    <div class="intro-text">🔥 POORE 100 PREMIUM GAMES LIVE! APNA FAVORITE CHOOSE KARO:</div>
+    <header>
+        <h1>🎮 Ahmed's Ultimate Games 🚀</h1>
+    </header>
 
-    <div class="game-grid">
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/classic-bowling/embed', 'Classic Bowling')"><div class="game-icon">🎳</div><div class="game-title">Bowling</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/moto-x3m/embed', 'Moto X3M')"><div class="game-icon">🏍️</div><div class="game-title">Moto X3M</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/cricket-world-cup/embed', 'Cricket Cup')"><div class="game-icon">🏏</div><div class="game-title">Cricket Cup</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/ludo-fever/embed', 'Ludo Fever')"><div class="game-icon">🎲</div><div class="game-title">Ludo Fever</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/bubble-shooter/embed', 'Bubble Shooter')"><div class="game-icon">🔮</div><div class="game-title">Bubble Shoot</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/solitaire/embed', 'Solitaire')"><div class="game-icon">🃏</div><div class="game-title">Solitaire</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/table-tennis/embed', 'Table Tennis')"><div class="game-icon">🏓</div><div class="game-title">Table Tennis</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/traffic-tom/embed', 'Traffic Tom')"><div class="game-icon">🏍️</div><div class="game-title">Traffic Tom</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/cut-the-rope/embed', 'Cut The Rope')"><div class="game-icon">🐸</div><div class="game-title">Cut The Rope</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/penalty-challenge/embed', 'Penalty Kick')"><div class="game-icon">⚽</div><div class="game-title">Penalty Kick</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/zombie-derby/embed', 'Zombie Derby')"><div class="game-icon">🧟</div><div class="game-title">Zombie Derby</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/archery-world-tour/embed', 'Archery Tour')"><div class="game-icon">🏹</div><div class="game-title">Archery Tour</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/chess/embed', 'Master Chess')"><div class="game-icon">👑</div><div class="game-title">Master Chess</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/basketball-legend/embed', 'Basketball')"><div class="game-icon">🏀</div><div class="game-title">Basketball</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/flappy-bird/embed', 'Flappy Bird')"><div class="game-icon">🐦</div><div class="game-title">Flappy Bird</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/knife-rain/embed', 'Knife Hit')"><div class="game-icon">🔪</div><div class="game-title">Knife Hit</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/color-road/embed', 'Color Road')"><div class="game-icon">🟡</div><div class="game-title">Color Road</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/angry-aliens/embed', 'Angry Aliens')"><div class="game-icon">👽</div><div class="game-title">Angry Aliens</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/subway-runner/embed', 'Subway Runner')"><div class="game-icon">🏃</div><div class="game-title">Subway Run</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/pool-8-ball/embed', '8 Ball Pool')"><div class="game-icon">🎱</div><div class="game-title">8 Ball Pool</div></div>
+    <p class="intro-text">Play the best premium free games directly in your browser! No downloads required.</p>
 
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/runner-coaster/embed', 'Coaster Run')"><div class="game-icon">🎢</div><div class="game-title">Coaster Run</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/car-draw/embed', 'Draw Car')"><div class="game-icon">✏️</div><div class="game-title">Draw Car</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/fruit-ninja-classic/embed', 'Fruit Slasher')"><div class="game-icon">🍉</div><div class="game-title">Fruit Ninja</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/temple-run/embed', 'Temple Chase')"><div class="game-icon">🏃‍♂️</div><div class="game-title">Temple Chase</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/ludo-legend/embed', 'Ludo Legend')"><div class="game-icon">👑</div><div class="game-title">Ludo Legend</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/block-champ/embed', 'Block Champ')"><div class="game-icon">🧱</div><div class="game-title">Block Champ</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/mahjong-classic/embed', 'Mahjong')"><div class="game-icon">🀄</div><div class="game-title">Mahjong</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/word-search/embed', 'Word Search')"><div class="game-icon">🔍</div><div class="game-title">Word Search</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/pac-xf/embed', 'Pac-Man Clone')"><div class="game-icon">👾</div><div class="game-title">Retro Eater</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/tetris-cube/embed', 'Tetris Cube')"><div class="game-icon">🟩</div><div class="game-title">Tetris Cube</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/badland/embed', 'Badland Run')"><div class="game-icon">🦇</div><div class="game-title">Badland Fly</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/hills-mount-race/embed', 'Hill Climb')"><div class="game-icon">🚗</div><div class="game-title">Hill Climb</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/soccer-caps-league/embed', 'Caps Soccer')"><div class="game-icon">🏆</div><div class="game-title">Caps Soccer</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/stickman-fighter/embed', 'Stickman Fight')"><div class="game-icon">🤺</div><div class="game-title">Stickman</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/geometry-dash-neon/embed', 'Geometry Neon')"><div class="game-icon">🔺</div><div class="game-title">Geo Dash</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/tower-crash/embed', 'Tower Crash')"><div class="game-icon">🗼</div><div class="game-title">Tower Crash</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/neon-guitar/embed', 'Neon Guitar Hero')"><div class="game-icon">🎸</div><div class="game-title">Guitar Hero</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/super-mario-run/embed', 'Plumber Run')"><div class="game-icon">🍄</div><div class="game-title">Plumber Run</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/slither-io-skin/embed', 'Snake Arena')"><div class="game-icon">🐍</div><div class="game-title">Snake Arena</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/jewel-crush/embed', 'Jewel Blast')"><div class="game-icon">💎</div><div class="game-title">Jewel Blast</div></div>
+    <div class="games-grid">
 
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/crossy-road/embed', 'Crossy Road')"><div class="game-icon">🐔</div><div class="game-title">Crossy Road</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/drift-boss/embed', 'Drift Boss')"><div class="game-icon">⚡</div><div class="game-title">Drift Boss</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/cyber-truck-drive/embed', 'Cyber Truck')"><div class="game-icon">🛻</div><div class="game-title">Cyber Truck</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/mine-clone/embed', 'Block Craft')"><div class="game-icon">⛏️</div><div class="game-title">Block Craft</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/among-us-arena/embed', 'Space Impostor')"><div class="game-icon">🚀</div><div class="game-title">Impostor</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/helix-jump-neon/embed', 'Helix Drop')"><div class="game-icon">🌀</div><div class="game-title">Helix Drop</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/tank-hero/embed', 'Tank Battle')"><div class="game-icon">🚀</div><div class="game-title">Tank Battle</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/spider-solitaire/embed', 'Spider Cards')"><div class="game-icon">🕷️</div><div class="game-title">Spider Card</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/dunk-shot/embed', 'Dunk Basket')"><div class="game-icon">🗑️</div><div class="game-title">Dunk Basket</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/tiles-hop/embed', 'Tiles Ball Jump')"><div class="game-icon">🎵</div><div class="game-title">Tiles Hop</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/parking-jam/embed', 'Parking escape')"><div class="game-icon">🚦</div><div class="game-title">Parking Jam</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/sudoku-classic/embed', 'Sudoku Logic')"><div class="game-icon">🔢</div><div class="game-title">Sudoku</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/freecell/embed', 'Freecell Cards')"><div class="game-icon">🃏</div><div class="game-title">Freecell</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/neon-pong/embed', 'Classic Pong')"><div class="game-icon">🏓</div><div class="game-title">Neon Pong</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/duck-hunter/embed', 'Duck Shoot')"><div class="game-icon">🦆</div><div class="game-title">Duck Shoot</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/ping-pong/embed', 'Paddle Tennis')"><div class="game-icon">🎾</div><div class="game-title">Ping Pong</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/word-connect/embed', 'Word Brain')"><div class="game-icon">✍️</div><div class="game-title">Word Links</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/classic-minesweeper/embed', 'Bomb Sweeper')"><div class="game-icon">💣</div><div class="game-title">Minesweep</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/color-switch/embed', 'Color Switch')"><div class="game-icon">🎡</div><div class="game-title">Color Switch</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/2048-puzzle/embed', '2048 Block')"><div class="game-icon">🔢</div><div class="game-title">2048 Game</div></div>
+        <div class="game-card">
+            <div class="game-title">🧩 Classic 2048 Puzzle</div>
+            <iframe class="game-frame" src="https://play.gidd.io/2048"></iframe>
+        </div>
 
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/neon-billiard/embed', '8 Pool Neon')"><div class="game-icon">🎱</div><div class="game-title">Neon Pool</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/monster-truck/embed', 'Truck Climb')"><div class="game-icon">🛞</div><div class="game-title">Monster Truck</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/bubble-wrap/embed', 'Pop Bubble Pop')"><div class="game-icon">🧼</div><div class="game-title">Bubble Pop</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/street-racing/embed', 'Speed Nitro Racer')"><div class="game-icon">🏎️</div><div class="game-title">Nitro Race</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/ludo-play/embed', 'Ludo Classic 2')"><div class="game-icon">🎲</div><div class="game-title">Ludo Classic</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/zombie-hunter/embed', 'Zombie Survival')"><div class="game-icon">🔫</div><div class="game-title">Zombie Hunt</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/jetpack-joyride/embed', 'Fly Jetpack')"><div class="game-icon">🚀</div><div class="game-title">Jetpack Fly</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/fruit-break/embed', 'Fruit Squeeze')"><div class="game-icon">🍎</div><div class="game-title">Fruit Break</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/knife-hit-ninja/embed', 'Ninja Knife Throw')"><div class="game-icon">🥷</div><div class="game-title">Ninja Knife</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/gold-miner/embed', 'Gold Miner Hook')"><div class="game-icon">💰</div><div class="game-title">Gold Miner</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/cricket-batter/embed', 'Pro Cricket 2D')"><div class="game-icon">🏏</div><div class="game-title">Cricket Bat</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/retro-race/embed', 'Pixel Car Race')"><div class="game-icon">👾</div><div class="game-title">Pixel Race</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/candy-crush-saga/embed', 'Candy Match')"><div class="game-icon">🍬</div><div class="game-title">Candy Match</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/subway-surf/embed', 'Train Surfers')"><div class="game-icon">🚇</div><div class="game-title">Train Surf</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/totem-destroyer/embed', 'Block Balance')"><div class="game-icon">🗿</div><div class="game-title">Block Blast</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/cyber-soldier/embed', 'Metal Rambo')"><div class="game-icon">🤖</div><div class="game-title">Cyber Soldier</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/tower-defense/embed', 'Army Base Save')"><div class="game-icon">🛡️</div><div class="game-title">Base Defense</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/bowmaster/embed', 'Archer Target')"><div class="game-icon">🎯</div><div class="game-title">Bow Master</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/glow-hockey/embed', 'Neon Air Hockey')"><div class="game-icon">🏒</div><div class="game-title">Glow Hockey</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/bubble-hero/embed', 'Rescue Squirrel')"><div class="game-icon">🐿️</div><div class="game-title">Bubble Hero</div></div>
+        <div class="game-card">
+            <div class="game-title">📝 Word Search Connect</div>
+            <iframe class="game-frame" src="https://games.html5games.com/wordsearch/"></iframe>
+        </div>
 
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/tic-tac-toe/embed', 'OX Board')"><div class="game-icon">❌</div><div class="game-title">Zero Kanta</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/math-vs-bat/embed', 'Math Battle')"><div class="game-icon">➕</div><div class="game-title">Math Battle</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/hex-puzzle/embed', 'Block Hexa')"><div class="game-icon">🔷</div><div class="game-title">Hexa Block</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/pixel-art/embed', 'Color Drawing')"><div class="game-icon">🎨</div><div class="game-title">Pixel Art</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/space-invaders/embed', 'Galaxy Attack')"><div class="game-icon">🛸</div><div class="game-title">Galaxy Fight</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/chess-online/embed', 'Live Chess Pro')"><div class="game-icon">♟️</div><div class="game-title">Chess Arena</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/moto-pool/embed', 'Bike Stunt 3D')"><div class="game-icon">🏁</div><div class="game-title">Bike Stunts</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/crazy-runner/embed', 'Infinite Run')"><div class="game-icon">🏃‍♂️</div><div class="game-title">Crazy Run</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/pool-billiard/embed', '9 Ball Billiard')"><div class="game-icon">🎱</div><div class="game-title">Billiard Pro</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/box-tower/embed', 'Stack Box Up')"><div class="game-icon">📦</div><div class="game-title">Box Stacker</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/sonic-run/embed', 'Hedgehog Runner')"><div class="game-icon">🦔</div><div class="game-title">Hedgehog Run</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/memory-brain/embed', 'Card Match IQ')"><div class="game-icon">🧠</div><div class="game-title">Memory IQ</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/zombie-tsunami/embed', 'Zombie Run Horde')"><div class="game-icon">🧟‍♂️</div><div class="game-title">Zombie Crowd</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/angry-chickens/embed', 'Slither Chicken')"><div class="game-icon">🐔</div><div class="game-title">Egg Slither</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/ninja-run/embed', 'Shinobi Roof Jump')"><div class="game-icon">🥷</div><div class="game-title">Ninja Dash</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/dino-run/embed', 'T-Rex Chrome Run')"><div class="game-icon">🦖</div><div class="game-title">Dino Pixel</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/bubble-blast/embed', 'Chain Pop Pop')"><div class="game-icon">💥</div><div class="game-title">Bubble Pop</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/penalty-kick/embed', 'Soccer Goal Pro')"><div class="game-icon">🥅</div><div class="game-title">Soccer Strike</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/drift-racer/embed', 'Car Drift Max')"><div class="game-icon">🏎️</div><div class="game-title">Car Drift</div></div>
-        <div class="game-card" onclick="openGame('https://play.gamepix.com/ludo-star/embed', 'Ludo Master Club')"><div class="game-icon">⭐</div><div class="game-title">Ludo Star</div></div>
+        <div class="game-card">
+            <div class="game-title">🚀 Retro Space Shooter (Firing)</div>
+            <iframe class="game-frame" src="https://games.html5games.com/spaceshooter/"></iframe>
+        </div>
+
+        <div class="game-card">
+            <div class="game-title">🐦 Classic Flappy Bird</div>
+            <iframe class="game-frame" src="https://games.html5games.com/flappybird/"></iframe>
+        </div>
+
+        <div class="game-card">
+            <div class="game-title">⚽ Penalty Kick Football</div>
+            <iframe class="game-frame" src="https://games.html5games.com/penaltykick/"></iframe>
+        </div>
+
+        <div class="game-card">
+            <div class="game-title">🏎️ Cyber Cars Racing</div>
+            <iframe class="game-frame" src="https://games.html5games.com/cybercars/"></iframe>
+        </div>
+
     </div>
 
-    <div class="game-popup" id="gamePopup">
-        <div class="popup-header">
-            <span class="popup-title" id="currentPlayingTitle">Loading Game...</span>
-            <button class="close-btn" onclick="closeGame()">X BACK 🛑</button>
-        </div>
-        <div class="iframe-container">
-            <iframe id="gamePlayer" src="" allowfullscreen="true"></iframe>
-        </div>
-    </div>
-
-    <script>
-        function openGame(url, title) {
-            document.getElementById('currentPlayingTitle').innerText = title.toUpperCase();
-            document.getElementById('gamePlayer').src = url;
-            document.getElementById('gamePopup').style.display = 'flex';
-        }
-        function closeGame() {
-            document.getElementById('gamePopup').style.display = 'none';
-            document.getElementById('gamePlayer').src = '';
-        }
-    </script>
 </body>
 </html>
