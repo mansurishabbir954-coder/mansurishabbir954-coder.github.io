@@ -4,16 +4,18 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2468600181930460" crossorigin="anonymous"></script>
     
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Ahmed's Ultimate Mega Gaming Arcade</title>
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body, html { width: 100%; height: 100%; background-color: #06060c; font-family: 'Segoe UI', Arial, sans-serif; overflow: hidden; }
+        body, html { width: 100%; height: 100%; background-color: #06060c; font-family: 'Segoe UI', Arial, sans-serif; }
         header { background: linear-gradient(135deg, #12122c, #09091e); padding: 15px; text-align: center; border-bottom: 3px solid #00ffcc; height: 70px; }
-        header h1 { font-size: 22px; color: #00ffcc; text-shadow: 0 0 15px rgba(0, 255, 204, 0.5); font-weight: bold; }
-        .game-container { width: 100%; height: calc(100% - 70px); background: #000; }
-        iframe { width: 100%; height: 100%; border: none; }
+        header h1 { font-size: 20px; color: #00ffcc; text-shadow: 0 0 15px rgba(0, 255, 204, 0.5); font-weight: bold; }
+        
+        /* Scroll ko ek dam free aur smooth karne ke liye style */
+        .game-container { width: 100%; height: calc(100% - 70px); -webkit-overflow-scrolling: touch; overflow-y: auto; }
+        iframe { width: 100%; height: 100%; border: none; min-height: 100vh; }
     </style>
 </head>
 <body>
